@@ -5,9 +5,10 @@ const userSchema = new mongoose.Schema({
   email: String,
   password: String,
   image: String,
-  company : String,
-  department: String,
-  role: String
+  organizationId : String,
+  departmentId: String,
+  role: String,
+  history: String
 });
 
 const UserModel = mongoose.model("user", userSchema);

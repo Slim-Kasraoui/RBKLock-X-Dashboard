@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const departmentSchema = new mongoose.Schema({
   name: String,
   image: String,
-  companyId : String,
+  organizationId : String,
   headId : String,
   staff: Array
 });
