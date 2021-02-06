@@ -19,7 +19,7 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 
-const userRoute = require("./routes/user.route.js");
+const userRoute = require("./src/routes/user.route.js");
 
 const uri = process.env.ATLAS_URI;
 
