@@ -29,6 +29,18 @@ export const navItems: INavData[] = [
     name: 'Components'
   },
   {
+    name: 'Departments',
+    url: '/departments',
+    icon: 'icon-bank',
+    children: [
+      {
+        name: 'Departments\' List',
+        url: '/departments/departments-list',
+        icon: 'icon-list'
+      }
+    ]
+  },
+  {
     name: 'Base',
     url: '/base',
     icon: 'icon-puzzle',
@@ -232,20 +244,5 @@ export const navItems: INavData[] = [
       text: 'NEW'
     },
     attributes: { disabled: true },
-  },
-  {
-    name: 'Download CoreUI',
-    url: 'http://coreui.io/angular/',
-    icon: 'icon-cloud-download',
-    class: 'mt-auto',
-    variant: 'success',
-    attributes: { target: '_blank', rel: 'noopener' }
-  },
-  {
-    name: 'Try CoreUI PRO',
-    url: 'http://coreui.io/pro/angular/',
-    icon: 'icon-layers',
-    variant: 'danger',
-    attributes: { target: '_blank', rel: 'noopener' }
   }
 ];
