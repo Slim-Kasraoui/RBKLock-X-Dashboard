@@ -38,14 +38,23 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 
+const Staff = React.lazy(()=> import('./views/staff-table/Staff.js'))
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   // { path: '/theme', name: 'Theme', component: Colors, exact: true },
   // { path: '/theme/colors', name: 'Colors', component: Colors },
   // { path: '/theme/typography', name: 'Typography', component: Typography },
-  { path: '/instructional', name: 'Instructional', component: Tables, exact: true },
-  { path: '/instructional/cohort8', name: 'Cohort 8', component: Tables },
+  { path: '/instructional', name: 'Instructional', component: Staff, exact: true },
+  { path: '/instructional/cohort8', name: 'Cohort 8', component: Users },
+  { path: '/instructional/cohort9', name: 'Cohort 9', component: Staff },
+  { path: '/instructional/cohortX', name: 'Cohort X', component: Staff },
+  { path: '/instructional/cohort11', name: 'Cohort 11', component: Staff },
+  { path: '/instructional/cohort12', name: 'Cohort 12', component: Staff },
+
+  { path: '/administration', name: 'Administration', component: Staff },
+
   { path: '/base', name: 'Base', component: Cards, exact: true },
   { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },
   { path: '/base/cards', name: 'Cards', component: Cards },

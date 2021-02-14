@@ -39,7 +39,7 @@ const Users = () => {
 
   return (
     <CRow>
-      <CCol xl={6}>
+      <CCol>
         <CCard>
           <CCardHeader>
             Users
@@ -73,7 +73,7 @@ const Users = () => {
             activePage={page}
             onActivePageChange={pageChange}
             pages={5}
-            doubleArrows={false} 
+            doubleArrows={false}
             align="center"
           />
           </CCardBody>

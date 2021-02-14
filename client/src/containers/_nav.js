@@ -28,6 +28,8 @@ const _nav =  [
   //   to: '/theme/typography',
   //   icon: 'cil-pencil',
   // },
+
+  // Departments List
   {
     _tag: 'CSidebarNavTitle',
     _children: ['Departments']
@@ -64,6 +66,18 @@ const _nav =  [
     }
   ]
   },
+
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Administration',
+    to: '/Administration',
+    icon: 'cil-calculator',
+    badge: {
+      color: 'info',
+      text: 'NEW',
+    },
+  },
+
   {
     _tag: 'CSidebarNavTitle',
     _children: ['Components']
