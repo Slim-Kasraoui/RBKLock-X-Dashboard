@@ -31,12 +31,19 @@ export const navItems: INavData[] = [
   {
     name: "Departments",
     url: "/departments",
-    icon: "icon-bank",
+    icon: "icon-list",
     children: [
       {
-        name: "Departments' List",
-        url: "/departments/departments-list",
+        name: "Instructional",
+        url: "/Instructional",
         icon: "icon-list",
+        children: [
+          {
+            name: "Cohort X",
+            url: "/departments/Instructional/C-X",
+            icon: "icon-list",
+          },
+        ],
       },
     ],
   },
