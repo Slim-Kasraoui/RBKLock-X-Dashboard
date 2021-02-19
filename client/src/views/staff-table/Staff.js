@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
+// import createStaff from '../../actions/staffActions'
+
 
 import {
   CBadge,
+  CButton,
   CCard,
   CCardBody,
   CCardHeader,
@@ -13,6 +16,9 @@ import {
 import { DocsLink } from 'src/reusable'
 
 import usersData from '../users/UsersData'
+import { connect } from 'react-redux'
+
+import staffActions, { createStaff } from '../../actions/staffActions'
 
 const getBadge = status => {
   switch (status) {
@@ -23,13 +29,15 @@ const getBadge = status => {
     default: return 'primary'
   }
 }
-const fields = [{ key: 'name', _classes: 'font-weight-bold' },'registered', 'role', 'status']
+const fields = [{ key: 'name', _classes: 'font-weight-bold' }, 'registered', 'role', 'status']
 
-const Staff = () => {
+const Staff = (props) => {
   const history = useHistory()
   const queryPage = useLocation().search.match(/page=([0-9]+)/, '')
   const currentPage = Number(queryPage && queryPage[1] ? queryPage[1] : 1)
   const [page, setPage] = useState(currentPage)
+  const [staff, setStaff] = useState([1,2,3,4,5,6,7])
+
 
   const pageChange = newPage => {
     currentPage !== newPage && history.push(`/users?page=${newPage}`)
@@ -38,6 +46,7 @@ const Staff = () => {
   useEffect(() => {
     currentPage !== page && setPage(currentPage)
   }, [currentPage, page])
+
 
   return (
     <>
@@ -49,30 +58,41 @@ const Staff = () => {
               Staff List
             </CCardHeader> */}
             <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              hover
-              striped
-              bordered
-              size="sm"
-              itemsPerPage={7}
-              pagination
-              clickableRows
-              onRowClick={(item) => history.push(`/users/${item.id}`)}
-              scopedSlots = {{
-                'status':
-                  (item)=>(
-                    <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-              }}
-            />
+              <CDataTable
+                items={usersData}
+                fields={fields}
+                hover
+                striped
+                bordered
+                size="sm"
+                itemsPerPage={7}
+                pagination
+                clickableRows
+                onRowClick={(item) => history.push(`/users/${item.id}`)}
+                scopedSlots={{
+                  'status':
+                    (item) => (
+                      <td>
+                        <CBadge color={getBadge(item.status)}>
+                          {item.status}
+                        </CBadge>
+                      </td>
+                    )
+                }}
+              />
             </CCardBody>
           </CCard>
+        </CCol>
+        <CCol>
+
+          <CButton active block color="primary" aria-pressed="true" onClick={() => {
+            console.log('hi');
+            setStaff([...staff, 8])
+
+            props.addStaff(8)
+            console.log(staff)
+            console.log(props.staff.staffReducer)
+          }}>Primary</CButton>
         </CCol>
       </CRow>
 
@@ -80,4 +100,18 @@ const Staff = () => {
   )
 }
 
-export default Staff
+const mapStateToProps = (staff) => {
+  console.log("mapState====", staff);
+  return {
+    staff: staff
+  }
+}
+
+const mapDistpatchToProps = (dispatch) => {
+
+  return {
+    addStaff: (value) => dispatch(createStaff(value))
+  }
+}
+
+export default connect(mapStateToProps, mapDistpatchToProps)(Staff)
