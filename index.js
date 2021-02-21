@@ -40,7 +40,14 @@ mongoose
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/user", userRoute);
+// app.use("/api/user", userRoute);
+
+app.get("/login", (req, res) => {
+  console.log('login');
+  res.send({
+    token: 'test123'
+  });
+})
 
 const PORT = process.env.PORT || 3030;
 

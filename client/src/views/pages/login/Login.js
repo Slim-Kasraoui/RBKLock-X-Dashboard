@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Switch, Redirect } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -16,10 +16,11 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
-const Login = () => {
+const Login = (props) => {
   return (
     <div className="c-app c-default-layout flex-row align-items-center">
       <CContainer>
+
         <CRow className="justify-content-center">
           <CCol md="8">
             <CCardGroup>
@@ -46,7 +47,7 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs="6">
-                        <CButton color="primary" className="px-4">Login</CButton>
+                        <CButton onClick={()=>{props.logIn(); console.log('history', props.history); props.history.replace('/dashboard'); console.log('history', props.history)}} color="primary" className="px-4">Login</CButton>
                       </CCol>
                       <CCol xs="6" className="text-right">
                         <CButton color="link" className="px-0">Forgot password?</CButton>
@@ -55,7 +56,7 @@ const Login = () => {
                   </CForm>
                 </CCardBody>
               </CCard>
-              <CCard className="text-white bg-primary py-5 d-md-down-none" style={{ width: '44%' }}>
+              {/* <CCard className="text-white bg-primary py-5 d-md-down-none" style={{ width: '44%' }}>
                 <CCardBody className="text-center">
                   <div>
                     <h2>Sign up</h2>
@@ -66,10 +67,11 @@ const Login = () => {
                     </Link>
                   </div>
                 </CCardBody>
-              </CCard>
+              </CCard> */}
             </CCardGroup>
           </CCol>
         </CRow>
+
       </CContainer>
     </div>
   )

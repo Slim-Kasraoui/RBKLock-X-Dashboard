@@ -18,7 +18,7 @@ import { DocsLink } from 'src/reusable'
 import usersData from '../users/UsersData'
 import { connect } from 'react-redux'
 
-import staffActions, { createStaff } from '../../actions/staffActions'
+import staffActions, { createStaff } from '../../redux/actions/staffActions'
 
 const getBadge = status => {
   switch (status) {

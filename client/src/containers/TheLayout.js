@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {
   TheContent,
   TheSidebar,
@@ -6,8 +7,8 @@ import {
   TheHeader
 } from './index'
 
-const TheLayout = (props) => {
-  console.log(props);
+const TheLayout = () => {
+  console.log();
   return (
     <div className="c-app c-default-layout">
       <TheSidebar />
